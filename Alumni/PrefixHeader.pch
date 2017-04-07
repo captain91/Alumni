@@ -1,0 +1,59 @@
+//
+//  PrefixHeader.pch
+//  Alumni
+//
+//  Created by Sun on 2017/2/9.
+//  Copyright © 2017年 sun. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+//发布去掉NSLog
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...) {}
+#endif
+
+#define ISFIRSTOPEN @"isFirstOpen"
+
+//设置颜色
+#define BGColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define BGAlphaColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+//获得屏幕宽 高
+#define VIEW_WIDTH   [UIScreen mainScreen].bounds.size.width
+#define VIEW_HEIGHT   [UIScreen mainScreen].bounds.size.height
+#define NAVIGATION_H 64
+
+//颜色设置
+#define TabBarTintColor [UIColor colorWithRed:183/255.0 green:10/255.0 blue:52/255.0 alpha:1.0]
+
+//头文件包含
+#import "UIImage+Extension.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "FunctionFast.h"
+
+//第三方头文件
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "MJRefresh.h"
+
+//自己封装的头文件
+#import "HttpRequest.h"
+
+//同学录图片高宽
+#define PhotoImageH (VIEW_WIDTH-40)/3 * 4/3
+#define PhotoImageW (VIEW_WIDTH-40)/3
+
+
+//数据接口地址
+//测试用
+#define Http_Adress @"http://chgp.beiliji.online"
+//#define Http_Adress @"http://topmaster.server.zznorth.com"
+#define StudentsList_Https @""Http_Adress"/api/user/teacherRemark?page=%ld&pageSize=12"
+
+#endif /* PrefixHeader_pch */
